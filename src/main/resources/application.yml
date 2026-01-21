@@ -1,15 +1,24 @@
+spring:
+  profiles:
+    active: prod
+
 server:
   port: 8080
   servlet:
     context-path: /my-config
 
 app:
-  name: "shop"
-  version: 1.2
-  description: "Clothes"
+  name: shop
+  version: 1.0.0
+  description: Clothes
 
 api:
-  url: "https://shop.ru"
+  url: https://shop.ru
   timeout: 3000
   api-key: ${API_KEY:default_secret}
 
+logging:
+  level:
+    root: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
