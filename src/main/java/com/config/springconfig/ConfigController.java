@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Properties;
 
 @RestController
 public class ConfigController {
@@ -18,8 +16,8 @@ public class ConfigController {
         this.appProperties = appProperties;
     }
 
-    @GetMapping("/config")
-    public Map<String, Object> getApiProperties(){
+    @GetMapping("/config/api")
+    public Map<String, Object> getApiProperties() {
         Map<String, Object> api = new HashMap<>();
         api.put("url", apiProperties.getUrl());
         api.put("timeout", apiProperties.getTimeout());
@@ -27,7 +25,24 @@ public class ConfigController {
         return api;
     }
 
+    @GetMapping("/config/app")
+    public Map<String, Object> getAppProperties() {
+        Map<String, Object> app = new HashMap<>();
+        app.put("name", appProperties.getName());
+        app.put("version", appProperties.getVersion());
+        app.put("description", appProperties.getDescription());
 
+        return app;
+    }
+
+    @GetMapping("/config")
+    public Map<String, Object> getConfigs() {
+        Map<String, Object> configs = new HashMap<>();
+        configs.put("appProperties", getAppProperties());
+        configs.put("apiProperties", getApiProperties());
+
+        return configs;
+    }
 
 
 }
