@@ -14,10 +14,11 @@ public class ApiProperties {
     @NotBlank
     private String url;
 
-    @Min(1000)
-    @Max(10000)
+    @Min(value = 1000, message = "Минимальный 1000мс")
+    @Max(value = 10000, message = "Максимальный 10000мс")
     private int timeout;
 
+    @NotBlank(message = "API ключ обязательный")
     private String apiKey;
 
 }
