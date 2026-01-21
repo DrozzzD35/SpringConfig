@@ -3,15 +3,17 @@ package com.config.springconfig;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.annotation.Validated;
 
-@Component
+@Configuration
 @ConfigurationProperties(prefix = "app")
+@Validated
 @Data
 public class AppProperties {
     @NotBlank
     private String name;
-    private double version;
+    private String version;
     private String description;
 
 }
