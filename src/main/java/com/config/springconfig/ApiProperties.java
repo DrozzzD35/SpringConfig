@@ -18,6 +18,6 @@ public class ApiProperties {
     @Max(10000)
     private int timeout;
 
-    private int apiKey;
+    private String apiKey;
 
 }

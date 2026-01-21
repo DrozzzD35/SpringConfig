@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: my-config
+    context-path: /my-config
 
 app:
   name: "shop"
