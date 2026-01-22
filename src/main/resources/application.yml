@@ -19,6 +19,12 @@ api:
 
 logging:
   level:
-    root: DEBUG
+    root: WARN
   pattern:
     console: "%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
