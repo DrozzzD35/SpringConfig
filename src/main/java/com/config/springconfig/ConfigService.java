@@ -4,11 +4,13 @@ import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
+@RefreshScope
 public class ConfigService {
 
     private static final Logger log = LoggerFactory.getLogger(ConfigService.class);
